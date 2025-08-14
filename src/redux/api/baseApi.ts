@@ -1,10 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const store = configureStore({
-  reducer: {},
+// Define a service using a base URL and expected endpoints
+export const baseApi = createApi({
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
+  endpoints: (builder) => ({
+    getBlogs: builder.query({
+      query: () => "/blogs",
+    }),
+  }),
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+export const { useGetBlogsQuery } = baseApi;
+// I get this *useGetBlogsQuery* hook from *getBlogs* . redux is created this.
