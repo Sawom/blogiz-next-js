@@ -11,5 +11,6 @@ export const baseApi = createApi({
   }),
 });
 
+// Export hooks for usage in functional components, which are
+// auto-generated based on the defined endpoints
 export const { useGetBlogsQuery } = baseApi;
-// I get this *useGetBlogsQuery* hook from *getBlogs* . redux is created this.

@@ -8,6 +8,3 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default Providers;
-
-// here store={store} I created. { children: React.ReactNode } I get from layout.tsx
-// Provider from redux
